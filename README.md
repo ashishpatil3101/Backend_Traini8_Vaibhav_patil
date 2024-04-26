@@ -1,39 +1,70 @@
-# Spring Boot Project README
 
-## Description
-This project is a Spring Boot application that provides implementation of assignment by buyogo.
+# Project Title
 
+#  Training Centre Management System
+
+a web-based training centre management system that allows users to manage and organize various aspects of training centres, including adding new centres and retrieving existing ones.
+
+## Deployed Link 
+   - [click here to go to Deployed link](https://backend-traini8-vaibhav-patil-buyogo.onrender.com/swagger-ui/index.html)
+
+## Features
+
+- **Add Training Centre**: Users can add new training centres to the system, providing details such as centre name, code, address, capacity, courses offered, and contact information.
+- **Retrieve Training Centre**: Users can retrieve training centres based on various criteria such as city, centre name, centre code, course name, and maximum student capacity.
+
+## Technologies Used
+
+- **Spring Boot**: Backend framework for building RESTful APIs.
+- **Java Persistence API (JPA)**: Java specification for managing relational data in applications.
+- **Jakarta EE**: Set of specifications for enterprise Java applications.
+- **PostgreSQL Database**: 
+- **Lombok**: Library to reduce boilerplate code in Java.
+- **Swagger**: API documentation tool for documenting RESTful APIs.
 
 ## Setup Instructions
-Follow these steps to set up and run the application:
 
-1. **Prerequisites**: 
-   - Java Development Kit (JDK) version 17 or higher installed.
-   - Maven installed (if not included with your IDE).
+1. Clone the repository: `https://github.com/ashishpatil3101/Backend_Traini8_Vaibhav_patil.git`
+2. Navigate to the project directory: `cd <project_directory>`
+3. Build the project: `mvn clean install`
+4. Run the application: `mvn spring-boot:run`
+5. Access the application: Open a web browser and go to `http://localhost:8080`
 
-2. **Clone the Repository**:
-   - git clone https://github.com/ashishpatil3101/Backend_Traini8_Vaibhav_patil.git
-     
-3. **Add database properties**:
-   - add database properties in application.properties file
-   - add postgres sql connection url, password, username
-   - And you are good to go
+## API Documentation
 
-4. **Build the Project**:
-   - cd <project_directory>
-   - mvn clean install
+The API documentation is available at `http://localhost:8080/swagger-ui.html`, which provides detailed information about the available endpoints and how to use them.
 
-5. **Run from Command Line**:
-   - mvn spring-boot:run
+## Usage
 
-6. **Accessing the Application**:
-   - Base url <http://localhost:8080/{endpoints}>
-   - you can access, test, view all enpoints by refering to this swagger doc  <http://localhost:8080/swagger-ui/index.html>
+1. **Add Training Centre**:
+   - Method: `POST`
+   - Endpoint: `/trainingCentre/add`
+   - Request Body: Details of the training centre to be added.
+   - Example Request Body:
+     ```json
+     {
+        "centerName": "string",
+        "centerCode": "ciKb8Qf4VJFh",
+        "studentCapacity": 0,
+        "coursesOffered": ["string"],
+        "contactEmail": "string",
+        "contactPhone": "2692108100",
+        "detailedAddress": "string",
+        "city": "string",
+        "state": "string",
+        "pincode": "string"
+     }
+     ```
 
-7. **Deployed Url**:
-    - go to <https://backend-traini8-vaibhav-patil-buyogo.onrender.com/swagger-ui/index.html#/>  to test the apis
-  
-***THANK YOU***
+2. **Retrieve Training Centre**:
+   - Method: `GET`
+   - Endpoint: `/trainingCentre/get`
+   - Query Parameters: 
+     - `city`: Filter by city name.
+     - `centerName`: Filter by training centre name.
+     - `centerCode`: Filter by training centre code.
+     - `courseName`: Filter by course name.
+     - `studentCapacityMax`: Filter by maximum student capacity.
 
 
 
