@@ -24,10 +24,11 @@ a web-based training centre management system that allows users to manage and or
 ## Setup Instructions
 
 1. Clone the repository: `git clone https://github.com/ashishpatil3101/Backend_Traini8_Vaibhav_patil.git`
-2. Navigate to the project directory: `cd <project_directory>`
-3. Build the project: `mvn clean install`
-4. Run the application: `mvn spring-boot:run`
-5. Access the application: Open a web browser and go to `http://localhost:8080`
+2. Add database properties in application.properties file[username, password, dburl]
+3. Navigate to the project directory: `cd <project_directory>`
+4. Build the project: `mvn clean install`
+5. Run the application: `mvn spring-boot:run`
+6. Access the application: Open a web browser and go to `http://localhost:8080`
 
 ## API Documentation
 
