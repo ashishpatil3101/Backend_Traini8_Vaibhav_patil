@@ -42,9 +42,15 @@ public class TrainingCentreController {
     }
 
     @GetMapping("/get")
-    public ResponseEntity getTrainingCentre() throws Exception {
+    public ResponseEntity getTrainingCentre(
+                                            @RequestParam(required = false) String city,
+                                            @RequestParam(required = false) String centerName,
+                                            @RequestParam(required = false) String centerCode,
+                                            @RequestParam(required = false) String courseName,
+                                            @RequestParam(required = false) Integer studentCapacityMax
+    ) throws Exception {
         try{
-            return new ResponseEntity<>(trainingCentreService.getTrainingCentre(), HttpStatus.CREATED);
+            return new ResponseEntity<>(trainingCentreService.getTrainingCentre(city, centerName, centerCode, courseName,studentCapacityMax  ), HttpStatus.CREATED);
         }
         catch (Exception e ){
             throw  new Exception("An erro occured while fetching all training centre.");

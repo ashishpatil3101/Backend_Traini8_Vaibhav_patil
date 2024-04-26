@@ -3,6 +3,7 @@ package com.example.buyogo.transformers;
 import com.example.buyogo.dto.request.TrainingCentreRequestDto;
 import com.example.buyogo.dto.response.TrainingCentrResponseDto;
 import com.example.buyogo.model.TrainingCentre;
+import org.springframework.data.jpa.domain.Specification;
 
 import java.util.Date;
 
@@ -34,5 +35,39 @@ public class TrainingCentreTransformers {
                 .contactEmail(trainingCentre.getContactEmail())
                 .contactPhone(trainingCentre.getContactPhone())
                 .build();
+    }
+    public static Specification prepareSortingParams(String city,
+                                     String centerName,
+                                     String centerCode,
+                                     String courseName,
+                                     Integer studentCapacity, Specification spec
+                                     )
+    {
+        if (centerName != null && !centerName.isEmpty()) {
+            spec = spec.and((root, query, builder) ->
+                    builder.like(root.get("centerName"), "%" + centerName + "%")
+            );
+        }
+        if (city != null && !city.isEmpty()) {
+            spec = spec.and((root, query, builder) ->
+                    builder.equal(root.get("address").get("city"), city)
+            );
+        }
+        if (centerCode != null && !centerCode.isEmpty()) {
+            spec = spec.and((root, query, builder) ->
+                    builder.equal(root.get("centerCode"), centerCode)
+            );
+        }
+        if (courseName != null && !courseName.isEmpty()) {
+            spec = spec.and((root, query, builder) ->
+                    builder.isMember(courseName, root.get("coursesOffered"))
+            );
+        }
+        if (studentCapacity != null) {
+            spec = spec.and((root, query, builder) ->
+                    builder.lessThanOrEqualTo(root.get("studentCapacity"), studentCapacity)
+            );
+        }
+        return spec;
     }
 }
