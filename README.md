@@ -1,5 +1,4 @@
 
-# Project Title
 
 #  Training Centre Management System
 
