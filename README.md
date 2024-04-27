@@ -38,7 +38,7 @@ The API documentation is available at `http://localhost:8080/swagger-ui.html`, w
 
 1. **Add Training Centre**:
    - Method: `POST`
-   - Endpoint: `/trainingCentre/add`
+   - Endpoint: `/training-centre/add`
    - Request Body: Details of the training centre to be added.
    - Example Request Body:
      ```json
@@ -58,7 +58,7 @@ The API documentation is available at `http://localhost:8080/swagger-ui.html`, w
 
 2. **Retrieve Training Centre**:
    - Method: `GET`
-   - Endpoint: `/trainingCentre/get`
+   - Endpoint: `/training-centre/get`
    - Query Parameters: 
      - `city`: Filter by city name.
      - `centerName`: Filter by training centre name.
