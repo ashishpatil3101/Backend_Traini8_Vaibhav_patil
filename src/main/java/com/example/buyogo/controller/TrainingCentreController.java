@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/trainingCentre")
+@RequestMapping("/training-centre")
 public class TrainingCentreController {
 
     TrainingCentreService trainingCentreService;
@@ -53,7 +53,7 @@ public class TrainingCentreController {
             return new ResponseEntity<>(trainingCentreService.getTrainingCentre(city, centerName, centerCode, courseName,studentCapacityMax  ), HttpStatus.CREATED);
         }
         catch (Exception e ){
-            throw  new Exception("An erro occured while fetching all training centre.");
+            throw  new Exception("An error occured while fetching all training centre.");
         }
     }
 }
